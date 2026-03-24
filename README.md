@@ -29,7 +29,7 @@ Architect, deploy, and govern a hybrid compute environment integrated with centr
 
 ## 🏗️ Architecture & Network Design
 
-> **![Architecture Diagram](images/01_architecture.png)**
+> **![Architecture Diagram](Images/Architecture%20Diagram.png)**
 > *Caption: High-level logical architecture demonstrating network isolation via Service Endpoints and identity brokering.*
 
 ### Key Architectural Decisions
@@ -51,19 +51,19 @@ Architect, deploy, and govern a hybrid compute environment integrated with centr
 ### 1. The Network Perimeter
 Public access to the Key Vault is completely disabled. The firewall explicitly permits traffic only from the administrative IP and the internal container subnet (`Snet-ACI`).
 
-> **![Key Vault Firewall](images/02_network_firewall.png)**
+> **![Key Vault Firewall](Images/Key%20Vault%20Firewall.png)**
 > *Caption: Key Vault firewall configuration restricting access to the private VNet.*
 
 ### 2. The Identity Bridge (RBAC)
 The System-Assigned Managed Identity of the Container Instance is bound to the Key Vault. This proves the transition from legacy credential management to Zero-Trust identity management.
 
-> **![RBAC Assignment](images/03_rbac_identity.png)**
+> **![RBAC Assignment](Images/RBAC%20Assignment.png)**
 > *Caption: Role assignment showing the ACI identity bound to the Key Vault.*
 
 ### 3. Observability & Telemetry
 A core tenet of cloud governance is observability. Centralized logging is enabled for the ACI. The KQL query below validates that the serverless compute node is actively sending heartbeat and operational logs to the Log Analytics Workspace.
 
-> **![KQL Telemetry](images/04_kql_proof.png)**
+> **![KQL Telemetry](Images/KQL%20Telementry.png)**
 > *Caption: Log Analytics Workspace results verifying the operational status of the compute layer.*
 
 ---
